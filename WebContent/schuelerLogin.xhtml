@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+
+        <ui:composition template="/schuelerTemplate.xhtml">
+
+            <ui:define name="content">
+                <div class="container">
+                    <div class="modal-body">
+                        <div class="layout-center">
+                            <p:outputLabel value="fotoherfert4school"
+                                           styleClass="login-title layout-center fh-title"/>
+                            <h:form id="form">
+                                <div class="border-login" style="background-color: white;">
+                                    <p:outputLabel value="Login"
+                                                   styleClass="login-title layout-center"/>
+                                    <div class="form-group">
+                                        <p:messages id="messages" styleClass="errmsgs"
+                                                    closable="true" 
+                                                    showIcon="false" showDetail="false" 
+                                                    autoUpdate="true"/>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <p:graphicImage width="15px" 
+                                                                value="/images/key.png" />
+                                            </span>
+                                            <p:inputText id="keyp" 
+                                                         styleClass="input-box form-control"
+                                                         value="#{schuelerCon.zugangsSchluessel}"
+                                                         placeholder="Zugangsschlüssel"
+                                                         required="true"
+                                                         requiredMessage="Geben Sie einen Zugangsschlüssel ein!"
+                                                         style="box-shadow: none;width: 250px;"/>                                        
+                                        </div>
+                                    </div>
+                                    <p:commandButton styleClass="ripple cmd-submit btn btn-success"
+                                                     style="margin-left: 2px;width: 285px;
+                                                     font-size: 16px;font-weight: 800;outline: 0;"
+                                                     value="Anmelden"
+                                                     action="#{schuelerCon.login()}" />
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    <context-param>
+        <param-name>images_source</param-name>
+        <param-value>M:\5BHIF\fotoherfert4school(Alt)\MWVS_4C</param-value>
+        <!--<param-value>/var/fotoherfertData/bilder/</param-value>-->
+    </context-param>
+    <context-param>
+        <param-name>path_prefix</param-name>
+        <param-value>/MWVS_4C/</param-value>
+        <!--<param-value>/bilder/</param-value>-->
+    </context-param>
+    <context-param>
+        <param-name>wasserzeichen</param-name>
+        <param-value>wz_</param-value>
+    </context-param>
+    <context-param>
+        <param-name>webseiten_url</param-name>
+        <param-value>http://gfhost.htlstp.ac.at/fotoherfert4school_kunde/</param-value>
+    </context-param>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>at.htlstp.fotoherfert4school_schueler.others.ContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>faces/schuelerLogin.xhtml</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/faces/schuelerLoginFail.xhtml</location>
+    </error-page>
+</web-app>

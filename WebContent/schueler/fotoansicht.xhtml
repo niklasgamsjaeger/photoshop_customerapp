@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+
+        <ui:composition template="./../schuelerTemplate.xhtml">
+
+            <ui:define name="content">
+
+                <h:form id="fotoForm">
+                    <div class="bording-layer" 
+                         style="background-color: white;width: 836px;">
+                        <p:outputLabel styleClass="font-art layout-center"
+                                       style="color: #696969;font-size: 20px;"
+                                       value="#{schuelerCon.aktKlasse.schule.name} - #{schuelerCon.aktKlasse.name}" />
+                        <p:dataGrid id="fotoTable" 
+                                    styleClass="fotoTab"
+                                    value="#{schuelerCon.liefereMasterfotos()}" 
+                                    var="artikel" columns="4">
+                            <p:commandLink ajax="false"
+                                           style="display: table;margin: 0 auto;outline: 0;"
+                                           action="#{schuelerCon.selektiereFoto(artikel)}">
+                                <p:graphicImage width="150px"
+                                                styleClass="foto-prev"
+                                                value="#{schuelerCon.getImage(artikel)}" />
+                            </p:commandLink>
+                        </p:dataGrid>
+                    </div>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

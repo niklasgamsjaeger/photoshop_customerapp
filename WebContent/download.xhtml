@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <h:outputStylesheet library="css" name="schuelerDesign.css" />
+        <h:outputStylesheet library="css" name="bootstrap.min.css"  />
+        <h:outputStylesheet library="css" name="default.css" />
+        <h:outputStylesheet library="css" name="cssLayout.css" />
+        <h:outputStylesheet library="css" name="schuelerDesign.css" />
+
+        <link rel="shortcut icon"
+              href="#{request.contextPath}/resources/images/favicon.ico" />
+
+        <title>fotoherfert4school</title>
+
+        <f:metadata>
+            <f:viewParam name="rId" value="#{schuelerCon.downloadRekoId}" />
+            <f:viewParam name="dId" value="#{schuelerCon.downloadId}" />
+        </f:metadata>
+    </h:head>
+    <h:body onload="download()">
+        <div class="layout-center cover-img-div">
+            <p:graphicImage value="/images/Kundenapplikation_Titelbild_1.jpg"
+                            styleClass="cover-img layout-center" />
+        </div>
+        <div class="bording-layer"
+             style="padding: 10px;background-color: white;width: 835px;">
+            <h:form id="downloadButtonForm">
+                <p:outputLabel value="Danke für Ihre Bestellung bei fotoherfert4school!"
+                               styleClass="font-art"
+                               style="font-weight: 300;font-size: 28px;margin-bottom: 7px;"
+                               rendered="{not empty schuelerCon.downloadId 
+                               and not empty schuelerCon.downloadRekoId}"/>
+                <br />
+                <p:outputLabel value="Der Download Ihrer Datei sollte automatisch starten.
+                               Falls dies nicht der Fall ist drücken Sie bitte auf den Download-Button."
+                               styleClass="font-art"
+                               style="font-weight: 300;font-size: 15px;"
+                               rendered="#{not empty schuelerCon.downloadId 
+                                           and not empty schuelerCon.downloadRekoId}"/>
+                <div class="layout-center">
+                    <p:commandButton id="return"
+                                     style="margin-bottom: 12px;font-size: 20px;
+                                     font-weight: 300;outline: 0;margin-top: 25px;"
+                                     styleClass="cart-btn font-art btn btnExtra btn-large btn-success"
+                                     ajax="false"
+                                     actionListener="#{schuelerCon.download()}"
+                                     value="Download"
+                                     rendered="#{not empty schuelerCon.downloadId 
+                                                 and not empty schuelerCon.downloadRekoId}" />
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

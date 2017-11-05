@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    
+    <navigation-rule>
+        <from-view-id>/schueler/schuelerFotoansicht.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>warenkorb</from-outcome>
+            <to-view-id>/schueler/warenkorb.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schueler/fotoansicht.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>schuelerFotoansicht</from-outcome>
+            <to-view-id>/schueler/schuelerFotoansicht.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schueler/warenkorb.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>zurueckFotoauswahl</from-outcome>
+            <to-view-id>/schueler/schuelerFotoansicht.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schueler/paypalAntwort.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>zuruckLogin</from-outcome>
+            <to-view-id>/schuelerLogin.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schueler/zahlungErfolg.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>zuruckLogin</from-outcome>
+            <to-view-id>/schuelerLogin.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schueler/schuelerFotoansicht.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>zurueckFotoansicht</from-outcome>
+            <to-view-id>/schueler/fotoansicht.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schueler/warenkorb.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>bankueberweisung</from-outcome>
+            <to-view-id>/schueler/bankueberweisung.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-action>#{schuelerCon.bezahlBank()}</from-action>
+        <navigation-case>
+            <from-outcome>zahlung</from-outcome>
+            <to-view-id>/schueler/zahlungErfolg.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-action>#{schuelerCon.bezahlen()}</from-action>
+        <navigation-case>
+            <from-outcome>bank</from-outcome>
+            <to-view-id>/schueler/bankueberweisung.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schuelerLogin.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>fotoansicht</from-outcome>
+            <to-view-id>/schueler/fotoansicht.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schueler/paypalFehler.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>paypayBackToLogin</from-outcome>
+            <to-view-id>/schuelerLogin.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schueler/paypalAntwort.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>paypayAnswerBackToLogin</from-outcome>
+            <to-view-id>/schuelerLogin.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/schueler/bankueberweisung.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>bankBackToLogin</from-outcome>
+            <to-view-id>/schuelerLogin.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+</faces-config>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <h:outputStylesheet library="css" name="schuelerDesign.css" />
+        <h:outputStylesheet library="css" name="bootstrap.min.css"  />
+        <h:outputStylesheet library="css" name="default.css" />
+        <h:outputStylesheet library="css" name="cssLayout.css" />
+        <h:outputStylesheet library="css" name="schuelerDesign.css" />
+        
+        <link rel="shortcut icon"
+              href="#{request.contextPath}/resources/images/favicon.ico" />
+        
+        <title>fotoherfert4school</title>
+        
+    </h:head>
+
+    <h:body>
+        
+        <h:form id="but">
+            <p:remoteCommand name="redirect" action="#{schuelerCon.checkenObBenutzerEingeloggt()}"/>
+        </h:form>
+        <p:growl id="schuelerGrawl" autoUpdate="false" sticky="false" life="6000" />
+
+        <div id="top">
+            <div class="layout-center cover-img-div">
+                <p:graphicImage value="/images/Kundenapplikation_Titelbild_1.jpg"
+                                styleClass="cover-img layout-center" />
+            </div>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div class="style-line"></div>
+        <h:form id="form_footer">
+            <div class="font-art footer">
+                <p:commandLink value="Impressum" 
+                               actionListener="#{schuelerCon.redirectTo('/schueler/impressum.xhtml')}"
+                               style="text-decoration: none;"/>
+                <p:commandLink value="Kontakt" 
+                               actionListener="#{schuelerCon.redirectTo('/schueler/kontakt.xhtml')}"
+                               style="margin-left: 20px;text-decoration: none;"/>
+            </div>
+        </h:form>
+    </h:body>
+
+</html>

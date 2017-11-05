@@ -1,0 +1,356 @@
+/* 
+    Created on : 28.10.2015, 10:41:11
+    Author     : 20100435
+*/
+
+.layout-center{
+    display: table;
+    margin: 0 auto;
+}
+.float-left {
+    float: left;
+}
+.merk{
+    padding-left: 150px;
+}
+.merk-left{
+    margin-left: 10px;
+}
+.button {
+    margin-left: 315px;
+    background-color: #4f9efd;
+    color: #ffffff;
+
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+}
+.text-box-out{
+    padding-right: 15px;
+    padding-top: 5px;
+}
+.input-box{
+    height: 35px;
+    width: 250px;
+}
+
+.cmd-submit{
+    width: 150px;
+    height: 30px;
+    font-size: 14px;
+    margin-left: 140px;
+    -moz-box-shadow: 0 0 12px #ccc;
+    -webkit-box-shadow: 0 0 12px #ccc;
+    box-shadow: 0px 4px 7px #d4d4d4;
+    font-size: 15px;
+    text-shadow: none !important;
+    background-color: #ff9933;
+    border-color: #ff9933;
+    outline: none;
+}
+
+.cmd-submit:hover {
+    background-color: #d67400;
+    border-color: #d67400;
+    outline: none;
+    -moz-box-shadow: 0 0 12px #ccc;
+    -webkit-box-shadow: 0 0 12px #ccc;
+    box-shadow: 0px 5px 7px #d4d4d4;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.title{
+    font-family: Arial;
+    font-size: 22px;
+    color: #333333;
+}
+.font-art{
+    font-family: calibri;
+    color: #4b4a4a;
+    font-weight: 700;
+}
+
+.header-school{
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    font-family: Arial;
+    font-size: 22px;
+}
+
+div[id="fotoForm:fotoTable"] thead {
+    display:none;
+}
+
+.ui-datatable.borderless thead th,
+.ui-datatable.borderless tbody,
+.ui-datatable.borderless tbody tr,
+.ui-datatable.borderless tbody td {
+    border-style: none;
+}
+
+.ui-datatable-odd {
+    background: #ffffff;
+}
+
+.ui-datatable {
+    display: table;
+}
+
+.ui-datatable table {
+    table-layout: auto !important;
+}
+
+.ui-widget-content {
+    border: none;
+    background-color: transparent;
+}
+
+.ui-dialog-titlebar {
+    height: 1px;
+}
+
+.border-login {
+    border-style: solid;
+    border-color: #cccccc;
+    border-width: 1px;
+    border-radius: 7px;
+    //box-shadow: 5px 5px 15px #cccccc;
+    -moz-box-shadow: 0 0 12px #ccc;
+    -webkit-box-shadow: 0 0 12px #ccc;
+    box-shadow: 0 0 12px #ccc;
+    padding: 15px 25px 25px 25px;
+    padding: 25px 25px 25px 25px;
+    width: 340px;
+    margin-top: 30px;
+}
+
+.fotoTab{
+    display: table;
+    margin: 0 auto;
+    width: 800px;
+    padding-top: 15px;
+}
+
+.style-line {
+    border-bottom: 2px groove rgba(255, 255, 255, 0.62);
+    /*    border-width: 1px;
+        border-style: solid;
+        border-color: #e4e4e4;*/
+    width: 820px;
+    margin: 0 auto;
+    -moz-box-shadow: 0 0 12px #ccc;
+    -webkit-box-shadow: 0 0 12px #ccc;
+    box-shadow: 0px 0px 10px #d4d4d4;
+}
+
+.errmsgs {
+    font-family: calibri;
+    font-size: 14px;
+    width: 290px;
+}
+
+.foto-prev {
+    margin-bottom: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d4d4d4;
+    padding: 4px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 0 12px #ccc;
+    -webkit-box-shadow: 0 0 12px #ccc;
+    box-shadow: 0px 0px 12px #d4d4d4;
+    outline: none;
+}
+
+.foto-select-tab {
+    display: table;
+    margin: 0px auto;
+}
+
+.cart-btn {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    font-family: calibri;
+    height: 35px;
+    padding: 0px 8px;
+    color: #ffffff;
+}
+
+.foto-sel-chkb {
+    margin-top: -10px;
+}
+
+.ui-dialog .ui-dialog-titlebar{
+    background-color: white;
+    width: 550px;
+    display: table;
+    margin: 0 auto;
+}
+
+.ui-dialog {
+    width: 550px;
+}
+
+.hide-column-names table thead tr {
+    display: none;
+}
+
+.cart-list{
+    margin-left: 60px;
+}
+
+.ui-steps .ui-steps-item {
+    width: 170px;
+    height: 10px;
+}
+
+.ui-steps-title {
+    color: #727272;
+}
+
+.ui-state-highlight {
+    text-shadow: none !important;
+}
+
+.ui-steps.custom {
+    margin-bottom: 30px;
+}
+
+.ui-steps.custom .ui-steps-item .ui-menuitem-link {
+    height: 10px;
+    padding: 0 1em;
+}
+
+.ui-steps.custom .ui-steps-item .ui-steps-number {
+    background-color: #3399ff;
+    color: #FFFFFF;
+    display: inline-block;
+    width: 25px;
+    height: 35px;
+    border-radius: 10px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.pay-title {
+    color: #474747;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    float: left;
+}
+
+.ui-selectoneradio label {
+    margin-left: 10px;
+}
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+
+.pre-background{
+    background: url(../images/background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e8e8e8+100 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffc578+0,fb9d23+100;Orange+3D+%233 */
+    /*background-image: linear-gradient(white , rgba(219, 219, 219, .0));*/
+}
+
+.bording-layer {
+    display: table;
+    margin: 0 auto;
+    border: #ccc groove thin;
+    border-radius: 5px;
+    border-color: rgb(228, 227, 227);
+    margin-top: 15px;
+    padding-top: 4px;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    -moz-box-shadow: 0 0 12px #ccc;
+    -webkit-box-shadow: 0 0 12px #ccc;
+    box-shadow: 0px 0px 12px #d4d4d4;
+    background-color: transparent;
+}
+
+.shadowing {
+    -moz-box-shadow: 0 0 12px #ccc;
+    -webkit-box-shadow: 0 0 12px #ccc;
+    box-shadow: 0px 0px 12px #d4d4d4;
+}
+
+.delete-art:hover {
+    color: #3399ff;
+}
+
+.ui-chkbox .ui-chkbox-box {
+    background-color: #e0dfdf;
+    width: 20px;
+    height: 20px;
+    padding-left: 1px;
+    padding-top: 1px;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid #48ACE3;
+    background: #C8EAFE;
+}
+
+.ui-radiobutton .ui-radiobutton-box {
+    width: 20px;
+    height: 20px;
+    line-height: 16px;
+    border-radius: 10px;
+    padding-top: 1px;
+    padding-left: 1px;
+}
+
+.cover-img {
+    width:836px;
+    border-radius: 4px;
+}
+
+.cover-img-div {
+    width: 836px;
+    box-shadow: 0px 15px 20px -15px #333;
+}
+
+.login-title {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: #727272;
+    margin-bottom: 25px;
+}
+
+.fh-title {
+    font-size: 28px;
+    margin-top: 22px;
+}
+
+.ui-icon {
+    margin-left: -2px !important;
+    margin-top: -2px !important;
+}
+
+.ui-button-text-only .ui-button-text {
+	padding: none;
+}

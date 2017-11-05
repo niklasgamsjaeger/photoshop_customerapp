@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:body>
+
+        <ui:composition template="./../schuelerTemplate.xhtml">
+
+            <ui:define name="content">
+                <div class="layout-center">
+                    <div class="bording-layer"
+                         style="padding: 7px;background-color: white;">
+                        <h:form id="form">
+                            <p:commandButton id="return"
+                                             style="margin-bottom: 10px;font-size: 16px;
+                                             font-weight: 300;outline: 0;margin-left: 7px;margin-top: 7px;"
+                                             styleClass="cart-btn font-art btn btnExtra btn-large btn-success"
+                                             action="zurueckFotoauswahl" 
+                                             value="Zurück zur Fotoauswahl" />
+                            <div class="layout-center">
+                                <p:steps activeIndex="1" 
+                                         readonly="true"
+                                         style="margin-top: 15px;margin-bottom: 50px;"
+                                         styleClass="custom layout-center">
+                                    <p:menuitem value="Fotoauswahl" />
+                                    <p:menuitem value="Kassa" />
+                                    <p:menuitem value="Zahlung" />
+                                    <p:menuitem value="Bestellung abgeschlossen"  />
+                                </p:steps>
+                            </div>
+                            <div class="style-line"></div>
+                            <p:outputLabel value="Warenkorb"
+                                           style="font-size: 20px;margin-bottom: 30px;margin-top: 10px;"
+                                           styleClass="font-art layout-center"/>
+                            <div style="margin-top: 15px;margin-bottom: 10px">
+                                <p:outputLabel value="Bezeichnung"
+                                               styleClass="font-art"
+                                               style="margin-left: 315px;font-size: 14px;color: #383838;"/>
+                                <p:outputLabel value="Preis (inkl. MwSt.)"
+                                               styleClass="font-art"
+                                               style="margin-left: 150px;font-size: 14px;color: #383838;"/>
+                            </div>
+                            <div class="style-line"></div>
+                            <p:dataTable value="#{schuelerCon.wk_ueberpruefenBezahlen}"
+                                         var="foto"
+                                         id="fotos"
+                                         styleClass="borderless hide-column-names cart-list" 
+                                         emptyMessage="Ihr Warenkorb ist leer!">
+                                <p:column>
+                                    <p:commandLink action="#{schuelerCon.oeffneFotoDialog(foto.id)}"
+                                                   style="outline: 0;">
+                                        <p:graphicImage styleClass="foto-prev layout-center"
+                                                        style="width: 125px;padding: 5px 5px 5px 5px;"
+                                                        value="#{schuelerCon.getImage(foto)}" />
+                                    </p:commandLink>
+                                    <p:dialog draggable="false"
+                                              modal="true" 
+                                              widgetVar="photoDlg#{foto.id}"
+                                              style="background-color: #ffffff;"
+                                              resizable="false">
+                                        <p:outputLabel value="#{schuelerCon.getArtikelID(foto)}" 
+                                                       style="font-size: 18px;"
+                                                       styleClass="layout-center font-art" />
+                                        <p:graphicImage styleClass="foto-prev layout-center"
+                                                        style="height: 85vh;
+                                                        padding: 5px 5px 3px 5px;"
+                                                        value="#{schuelerCon.getImage(foto)}" />
+                                    </p:dialog>
+                                </p:column>
+                                <p:column>
+                                    <p:outputLabel style="padding-left: 100px;padding-right: 50px;width: 200px" 
+                                                   styleClass="font-art" 
+                                                   value="#{foto.artikeltyp.bezeichnung}" />
+                                </p:column>
+                                <p:column>
+                                    <p:outputLabel style="padding-left: 115px;width: 160px;" 
+                                                   styleClass="font-art" 
+                                                   value="#{foto.artikeltyp.preis}" >
+                                        <f:convertNumber type="currency" locale="de_AT"
+                                                         currencyCode="EUR"/>
+                                    </p:outputLabel>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+
+                        <div class="style-line"></div>
+                        <div style="font-size: 12px;margin-left: 25px;
+                             width: 300px;float: left;margin-top: 7px;">
+                            <p:outputLabel styleClass="font-art"
+                                           style="#{schuelerCon.zeigePartner}"
+                                           value="Falls Sie die Fotos ausdrucken möchten, " /><br />
+                            <p:outputLabel styleClass="font-art"
+                                           style="#{schuelerCon.zeigePartner}"
+                                           value="empfehlen wir ihnen " />
+                            <h:outputLink value="http://#{schuelerCon.aktKlasse.schule.partnerURL}" target="_blank">
+                                <p:outputLabel styleClass="font-art" 
+                                               style="font-weight: bold;color: #000;font-size: 13px;
+                                               color: rgb(54, 123, 150);padding-left: 5px;" 
+                                               value="#{schuelerCon.aktKlasse.schule.partnerURL}" />
+                            </h:outputLink>
+                        </div>
+                        <div style="margin-left: 435px;font-size: 15px;margin-top: 5px;">
+                            <p:outputLabel styleClass="font-art" 
+                                           style="font-weight: bold;color: #383838;width: 100px;text-align: right" 
+                                           value="Gesamtpreis:" />
+                            <p:outputLabel styleClass="font-art"
+                                           style="font-weight: bold;color: #383838;padding-left: 15px;"
+                                           value="#{schuelerCon.summe}">
+                                <f:convertNumber locale="de_AT" currencyCode="EUR"
+                                                 type="currency"/>
+                            </p:outputLabel>
+                        </div>
+
+                        <div style="margin-top: 40px;">
+                            <p:outputLabel value="Bezahlmethode auswählen:"
+                                           styleClass="font-art pay-title" />
+                            <h:form id="radiobuttons" style="margin-bottom: 15px;">
+                                <p:selectOneRadio id="bezahltyp"
+                                                  layout="pageDirection"
+                                                  style="color: #474747;"
+                                                  value="#{schuelerCon.bezahlen}">
+                                    <f:selectItem itemValue="paypal"  
+                                                  itemEscaped="false" 
+                                                  itemLabel="PayPal" />
+                                    <f:selectItem itemValue="bank"  
+                                                  itemEscaped="false" 
+                                                  itemLabel="Banküberweisung" />
+                                    <f:ajax render=":panels:bezahl"
+                                            execute=":panels:bezahl" />
+                                </p:selectOneRadio>
+                            </h:form>
+                            <div class="style-line"></div>
+                            <h:form id="panels">
+                                <p:commandButton id="bezahl" 
+                                                 style="float: right;margin-right: 80px;margin-bottom: 13px;
+                                                 font-size: 16px;font-weight: 300;margin-top: 13px;outline: 0;"
+                                                 styleClass="cart-btn font-art btn btnExtra btn-large btn-success"
+                                                 value="Bezahlvorgang fortsetzen" 
+                                                 action="#{schuelerCon.bezahlen()}" />
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>
